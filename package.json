@@ -2,20 +2,26 @@
   "name": "diary",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/diary.js",
+  "main": "dist/index.js",
   "bin": {
-    "diary": "./dist/diary.js"
+    "diary": "./dist/index.js"
   },
   "scripts": {
+    "diary": "npx ts-node ./src/index",
     "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.9",
+    "luxon": "^3.4.3",
+    "simple-git": "^3.19.1",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@types/ejs": "^3.1.2",
+    "@types/luxon": "^3.3.2",
     "typescript": "^5.2.2"
   }
 }
