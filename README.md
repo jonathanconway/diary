@@ -36,3 +36,19 @@ For example, if the current directory is within a git repository and the current
 ```
 
 If there is no git repository in the current directory, nothing happens.
+
+### `add` command
+
+When the keyword `add` or `a` is used, any text following it is added as a 2nd-level heading.
+
+For example, given the following command:
+
+```
+diary add "Meeting with Joanna"
+```
+
+The following heading is added to today's diary:
+
+```
+## Meeting with Joanna
+```
