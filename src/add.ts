@@ -1,11 +1,12 @@
 import { readFileSync, writeFileSync } from "fs";
-import { getTodaysDiaryPathName } from "./path";
+import { getTodaysDiaryTemplatePathName } from "./path";
 import { diary } from "./diary";
+import { open } from "./open";
 
 export function add([heading]: string[]) {
   diary();
 
-  const diaryPathName = getTodaysDiaryPathName();
+  const diaryPathName = getTodaysDiaryTemplatePathName();
 
   const diaryContent = readFileSync(diaryPathName).toString();
 
@@ -18,4 +19,6 @@ export function add([heading]: string[]) {
 `;
 
   writeFileSync(diaryPathName, newDiaryContent);
+
+  open(diaryPathName);
 }

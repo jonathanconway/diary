@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { render } from "ejs";
-import { getDiaryTemplatePath } from "./path";
+import { getTodaysDiaryTemplatePathName } from "./path";
 
 const TEMPLATE_DEFAULT_TEMPLATE = `# <%= (new Date()).toLocaleDateString() %>
 
@@ -11,19 +11,19 @@ const TEMPLATE_DEFAULT_TEMPLATE = `# <%= (new Date()).toLocaleDateString() %>
 
 export function createDiaryTemplate() {
   writeFileSync(
-    getDiaryTemplatePath(),
+    getTodaysDiaryTemplatePathName(),
     getDiaryTemplate() ?? TEMPLATE_DEFAULT_TEMPLATE
   );
 }
 
 export function createDiaryTemplateIfNotExist() {
-  if (!existsSync(getDiaryTemplatePath())) {
+  if (!existsSync(getTodaysDiaryTemplatePathName())) {
     createDiaryTemplate();
   }
 }
 
 export function getDiaryTemplate() {
-  const diaryTemplatetPath = getDiaryTemplatePath();
+  const diaryTemplatetPath = getTodaysDiaryTemplatePathName();
   if (existsSync(diaryTemplatetPath)) {
     return readFileSync(diaryTemplatetPath).toString();
   }

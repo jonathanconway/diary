@@ -3,12 +3,14 @@
 import { DateTime } from "luxon";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
+
 import { getDiariesPath } from "./path";
 import {
   createDiaryTemplateIfNotExist,
   getDiaryTemplate,
   renderDiaryTemplate,
 } from "./template";
+import { open } from "./open";
 
 export function diary() {
   const diariesPath = getDiariesPath();
@@ -26,4 +28,6 @@ export function diary() {
   if (!existsSync(diaryPathName)) {
     writeFileSync(diaryPathName, diaryEntry);
   }
+
+  open(diaryPathName);
 }

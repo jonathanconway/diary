@@ -5,6 +5,7 @@ import { homedir } from "os";
 import { simpleGit } from "simple-git";
 
 import { config } from "./config";
+import { open } from "./open";
 
 const git = simpleGit({
   baseDir: process.cwd(),
@@ -27,4 +28,6 @@ export async function branch() {
 -`;
 
   writeFileSync(diaryPathName, newDiaryContent);
+
+  open(diaryPathName);
 }

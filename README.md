@@ -8,6 +8,7 @@ Command line tool for generating Markdown-based diary files.
 git clone https://github.com/jonathanconway/diary
 cd diary
 npm install
+npm run build
 npm install -g
 ```
 
