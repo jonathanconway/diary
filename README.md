@@ -53,3 +53,7 @@ The following heading is added to today's diary:
 ```
 ## Meeting with Joanna
 ```
+
+## Configuration
+
+## Templates

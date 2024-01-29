@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
 import { readFileSync, writeFileSync } from "fs";
-import { join } from "path";
+import { basename, join } from "path";
 import { homedir } from "os";
 import { simpleGit } from "simple-git";
 
@@ -14,6 +14,10 @@ const git = simpleGit({
 export async function branch() {
   const { current: currentBranch } = await git.branch();
 
+  const branchHeading = config.includeRepoName
+    ? `${basename(process.cwd())}:${currentBranch}`
+    : currentBranch;
+
   const { diariesPath } = config;
   const homeDiariesPath = join(homedir(), diariesPath);
   const dateString = DateTime.fromJSDate(new Date()).toFormat("yyyyMMdd");
@@ -23,7 +27,7 @@ export async function branch() {
 
   const newDiaryContent = `${diaryContent}
   
-## ${currentBranch}
+## ${branchHeading}
 
 -`;
 

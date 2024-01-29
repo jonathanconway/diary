@@ -1,5 +1,6 @@
 {
   "diariesPath": "Diaries",
   "diariesTemplateFilename": "DiaryTemplate.md",
-  "editor": "open -a \"Sublime Text\""
+  "editor": "open -a \"Sublime Text\"",
+  "includeRepoName": true
 }
